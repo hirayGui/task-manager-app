@@ -1,25 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app';
 import { HeaderComponent } from './header/header';
 import { UserComponent } from './user/user';
-import { TasksComponent } from './tasks/tasks';
-import { TaskComponent } from './tasks/task/task';
-import { NewTaskComponent } from './tasks/new-task/new-task';
 import { SharedModule } from './shared/shared.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    UserComponent,
-    TasksComponent,
-    TaskComponent,
-    NewTaskComponent
+    UserComponent
   ], //modules
   bootstrap: [AppComponent],
-  imports: [BrowserModule, FormsModule, SharedModule], //standalone components
+  imports: [BrowserModule, SharedModule, TasksModule], //standalone components
 })
 export class AppModule {}
