@@ -1,11 +1,10 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { type NewTaskData } from '../task/task.model';
 import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-new-task',
-  imports: [FormsModule],
+  standalone: false,
   templateUrl: './new-task.html',
   styleUrl: './new-task.css',
 })
@@ -13,11 +12,6 @@ export class NewTaskComponent {
   @Input({ required: true }) userId!: string;
   @Output() close = new EventEmitter<void>();
   @Output() add = new EventEmitter<NewTaskData>();
-
-  // exemplo com a utilização de Signals. A grosso modo falando, apenas a declaração das variáveis mudaria.
-  /* title = signal('');
-  summary = signal('');
-  dueDate = signal(''); */
 
   title = '';
   summary = '';
@@ -43,3 +37,9 @@ export class NewTaskComponent {
     this.close.emit();
   }
 }
+
+  // exemplo com a utilização de Signals. A grosso modo falando, apenas a declaração das variáveis mudaria.
+  /* title = signal('');
+  summary = signal('');
+  dueDate = signal(''); */
+
